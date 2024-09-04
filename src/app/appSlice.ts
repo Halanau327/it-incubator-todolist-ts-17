@@ -35,20 +35,5 @@ export const initializeAppTC = () => (dispatch: Dispatch) => {
 
 export const appReducer = slice.reducer
 export const { setAppError, setAppStatus, setAppInitialized } = slice.actions
-
+export type AppInitialState = ReturnType<typeof slice.getInitialState>
 export type RequestStatusType = "idle" | "loading" | "succeeded" | "failed"
-
-// export type InitialStateType = {
-//   // происходит ли сейчас взаимодействие с сервером
-//   status: RequestStatusType
-//   // если ошибка какая-то глобальная произойдёт - мы запишем текст ошибки сюда
-//   error: string | null
-//   // true когда приложение проинициализировалось (проверили юзера, настройки получили и т.д.)
-//   isInitialized: boolean
-// }
-
-// const initialState: InitialStateType = {
-//   status: "idle",
-//   error: null,
-//   isInitialized: false,
-// }
