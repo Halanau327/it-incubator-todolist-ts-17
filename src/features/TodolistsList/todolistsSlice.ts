@@ -41,6 +41,9 @@ const slice = createSlice({
         state.push({ ...tl, filter: "all", entityStatus: "idle" })
       })
     },
+    clearTodolist: (state, action) => {
+      return []
+    },
   },
 })
 
