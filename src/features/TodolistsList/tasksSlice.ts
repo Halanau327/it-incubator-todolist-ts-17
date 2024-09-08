@@ -11,7 +11,7 @@ import { AppRootStateType } from "app/store"
 import { setAppStatus } from "app/appSlice"
 import { handleServerAppError, handleServerNetworkError } from "utils/error-utils"
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { addTodolist, removeTodolist, setTodolists } from "features/TodolistsList/todolistsSlice"
+import { addTodolist, clearTodolists, removeTodolist, setTodolists } from "features/TodolistsList/todolistsSlice"
 
 const slice = createSlice({
   name: "tasks",
@@ -45,7 +45,7 @@ const slice = createSlice({
     setTasks: (state, action: PayloadAction<{ tasks: Array<TaskType>; todolistId: string }>) => {
       state[action.payload.todolistId] = action.payload.tasks
     },
-    clearTasks: (state, action) => {
+    clearTasks: () => {
       return {}
     },
   },
@@ -149,4 +149,4 @@ export type TasksStateType = {
 type ThunkDispatch = Dispatch
 
 export const tasksReducer = slice.reducer
-export const { removeTask, addTask, setTasks, updateTask } = slice.actions
+export const { removeTask, addTask, setTasks, updateTask, clearTasks } = slice.actions
